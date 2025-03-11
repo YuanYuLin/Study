@@ -1,0 +1,29 @@
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dts b/arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dts
+index 40f38bc1a025..16de415ab846 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dts
++++ b/arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dts
+@@ -214,10 +214,23 @@ &i2c0 {
+ 
+ &i2c1 {
+ 	status = "okay";
++    multi-master;
++    ipmb@10 {
++        compatible = "ipmb-dev";
++        reg = <(0x10 | I2C_OWN_SLAVE_ADDRESS)>;
++        i2c-protocol;
++    };
++
+ };
+ 
+ &i2c2 {
+-	status = "okay";
++    status = "okay";
++    multi-master;
++    ipmb@10 {
++        compatible = "ipmb-dev";
++        reg = <(0x10 | I2C_OWN_SLAVE_ADDRESS)>;
++        i2c-protocol;
++    };
+ };
+ 
+ &i2c3 {

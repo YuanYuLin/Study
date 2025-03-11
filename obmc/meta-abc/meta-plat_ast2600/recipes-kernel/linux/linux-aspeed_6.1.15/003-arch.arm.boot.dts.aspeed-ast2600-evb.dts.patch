@@ -1,0 +1,44 @@
+diff --git a/arch/arm/boot/dts/aspeed-ast2600-evb.dts b/arch/arm/boot/dts/aspeed-ast2600-evb.dts
+index dd8a9808d7ab..2c693ab91f86 100644
+--- a/arch/arm/boot/dts/aspeed-ast2600-evb.dts
++++ b/arch/arm/boot/dts/aspeed-ast2600-evb.dts
+@@ -238,26 +238,10 @@ &i2c6 {
+ 
+ &i2c7 {
+ 	status = "okay";
+-
+-	temp@2e {
+-		compatible = "adi,adt7490";
+-		reg = <0x2e>;
+-	};
+-
+-	eeprom@50 {
+-		compatible = "atmel,24c08";
+-		reg = <0x50>;
+-		pagesize = <16>;
+-	};
+ };
+ 
+ &i2c8 {
+ 	status = "okay";
+-
+-	lm75@4d {
+-		compatible = "national,lm75";
+-		reg = <0x4d>;
+-	};
+ };
+ 
+ &i2c9 {
+@@ -383,3 +367,12 @@ &gpio0 {
+     /*AC0-AC7*/ "","","","","","","","";
+ };
+ 
++&gpio0 {
++    gpiod6 {
++        gpio-hog;
++        gpios = <ASPEED_GPIO(D, 6) GPIO_ACTIVE_LOW>;
++        output-low;
++        line-name = "GPIOD6";
++    };
++};
++

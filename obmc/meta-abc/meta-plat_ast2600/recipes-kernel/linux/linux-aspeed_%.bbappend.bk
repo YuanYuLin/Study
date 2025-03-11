@@ -1,0 +1,11 @@
+FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
+
+
+SRC_URI:append = " \
+  file://gpio_debug.cfg \
+  file://i2c_debug.cfg \
+  file://001-arch.arm.boot.dts.aspeed-ast2600-evb.dts.patch \
+  file://002-arch.arm.boot.dts.aspeed-ast2600-evb.dts.patch \
+  file://003-arch.arm.boot.dts.aspeed-ast2600-evb.dts.patch \
+  file://004-drivers.i2c.busses.i2c-aspeed.c.patch \
+  "

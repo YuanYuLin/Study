@@ -1,0 +1,19 @@
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dts b/arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dts
+index b0830a880376..8a8b8b574e26 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dts
++++ b/arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dts
+@@ -380,5 +380,14 @@ &gpio0 {
+     /*AA0-AA7*/ "","","","","","","","",
+     /*AB0-AB7*/ "","","","","","","","",
+     /*AC0-AC7*/ "","","","","","","","";
++
++
++    pmbus_sel {
++        gpio-hog;
++        gpios = <ASPEED_GPIO(D, 6) GPIO_ACTIVE_LOW>;
++        output-low;
++        line-name = "GPIOD6";
++    };
++
+ };
+ 

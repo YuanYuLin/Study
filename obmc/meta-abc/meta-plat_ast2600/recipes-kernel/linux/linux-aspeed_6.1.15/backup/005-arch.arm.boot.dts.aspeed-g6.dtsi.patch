@@ -1,0 +1,20 @@
+diff --git a/arch/arm/boot/dts/aspeed-g6.dtsi b/arch/arm/boot/dts/aspeed-g6.dtsi
+index ac2c084784ef..0bed27c3b163 100644
+--- a/arch/arm/boot/dts/aspeed-g6.dtsi
++++ b/arch/arm/boot/dts/aspeed-g6.dtsi
+@@ -841,6 +841,15 @@ fsim1: fsi@1e79b100 {
+ 
+ #include "aspeed-g6-pinctrl.dtsi"
+ 
++&gpio0 {
++    gpiod6 {
++        gpio-hog;
++        gpios = <ASPEED_GPIO(D, 6) GPIO_ACTIVE_LOW>;
++        output-low;
++        line-name = "GPIOD6";
++    };
++};
++
+ &i2c {
+ 	i2c0: i2c-bus@80 {
+ 		#address-cells = <1>;

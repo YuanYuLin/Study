@@ -1,0 +1,16 @@
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dts b/arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dts
+index de83c0eb1d6e..7b91d67182a5 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dts
++++ b/arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dts
+@@ -87,9 +87,9 @@ vccq_sdhci1: regulator-vccq-sdhci1 {
+ &mdio0 {
+ 	status = "okay";
+ 
+-	ethphy0: ethernet-phy@0 {
++	ethphy0: ethernet-phy@25 {
+ 		compatible = "ethernet-phy-ieee802.3-c22";
+-		reg = <0>;
++		reg = <25>;
+ 	};
+ };
+ 

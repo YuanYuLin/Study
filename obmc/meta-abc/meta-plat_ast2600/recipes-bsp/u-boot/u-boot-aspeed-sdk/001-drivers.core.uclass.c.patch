@@ -1,0 +1,12 @@
+diff --git a/drivers/core/uclass.c b/drivers/core/uclass.c
+index dc9eb62893..43c29b8447 100644
+--- a/drivers/core/uclass.c
++++ b/drivers/core/uclass.c
+@@ -260,6 +260,7 @@ int uclass_find_device_by_name(enum uclass_id id, const char *name,
+ 		return ret;
+ 
+ 	uclass_foreach_dev(dev, uc) {
++        printf("pin-controller: %s!\n", dev->name);
+ 		if (!strncmp(dev->name, name, strlen(name))) {
+ 			*devp = dev;
+ 			return 0;

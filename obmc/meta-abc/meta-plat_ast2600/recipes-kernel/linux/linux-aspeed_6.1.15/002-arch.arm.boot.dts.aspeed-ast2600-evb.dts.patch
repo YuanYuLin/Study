@@ -1,0 +1,31 @@
+diff --git a/arch/arm/boot/dts/aspeed-ast2600-evb.dts b/arch/arm/boot/dts/aspeed-ast2600-evb.dts
+index d2234248adec..dd8a9808d7ab 100644
+--- a/arch/arm/boot/dts/aspeed-ast2600-evb.dts
++++ b/arch/arm/boot/dts/aspeed-ast2600-evb.dts
+@@ -83,17 +83,6 @@ vccq_sdhci1: regulator-vccq-sdhci1 {
+ 			 <1800000 0>;
+ 	};
+ 
+-    gpio-keys {
+-        compatible = "gpio-keys";
+-
+-        GPIOD6 {
+-            label = "GPIOD6";
+-            gpios = <&gpio ASPEED_GPIO(D, 6) GPIO_ACTIVE_LOW>;
+-            linux,code = <ASPEED_GPIO(D, 6)>;
+-        };
+-
+-    };
+-
+ };
+ 
+ &mdio0 {
+@@ -361,7 +350,7 @@ &gfx {
+ 	memory-region = <&gfx_memory>;
+ };
+ 
+-&gpio {
++&gpio0 {
+     gpio-line-names =
+     /*A0-A7*/   "","","","","","","","",
+     /*B0-B7*/   "","","","","","","","",

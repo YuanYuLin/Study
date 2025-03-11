@@ -1,0 +1,50 @@
+diff --git a/arch/arm/dts/ast2600-evb.dts b/arch/arm/dts/ast2600-evb.dts
+index 6db1efdda5..f8a6387c9c 100644
+--- a/arch/arm/dts/ast2600-evb.dts
++++ b/arch/arm/dts/ast2600-evb.dts
+@@ -66,8 +66,8 @@
+ 			&pinctrl_mdio3_default &pinctrl_mdio4_default>;
+ 	#address-cells = <1>;
+ 	#size-cells = <0>;
+-	ethphy0: ethernet-phy@0 {
+-		reg = <0>;
++	ethphy0: ethernet-phy@25 {
++		reg = <25>;
+ 	};
+ 
+ 	ethphy1: ethernet-phy@1 {
+@@ -233,6 +233,34 @@
+ 	sdhci-drive-type = <1>;
+ };
+ 
++&i2c0 {
++	status = "okay";
++
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_i2c1_default>;
++};
++
++&i2c1 {
++	status = "okay";
++
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_i2c2_default>;
++};
++
++&i2c2 {
++	status = "okay";
++
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_i2c3_default>;
++};
++
++&i2c4 {
++	status = "okay";
++
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_i2c4_default>;
++};
++
+ &i2c4 {
+ 	status = "okay";
+ 

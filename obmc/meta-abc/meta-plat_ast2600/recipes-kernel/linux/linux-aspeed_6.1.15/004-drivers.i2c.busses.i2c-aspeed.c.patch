@@ -1,0 +1,49 @@
+diff --git a/drivers/i2c/busses/i2c-aspeed.c b/drivers/i2c/busses/i2c-aspeed.c
+index c64c381b69b7..3e6fc54115e6 100644
+--- a/drivers/i2c/busses/i2c-aspeed.c
++++ b/drivers/i2c/busses/i2c-aspeed.c
+@@ -981,6 +981,7 @@ static int aspeed_i2c_probe_bus(struct platform_device *pdev)
+ 	struct clk *parent_clk;
+ 	struct resource *res;
+ 	int irq, ret;
++    int adam_flag = 0;
+ 
+ 	bus = devm_kzalloc(&pdev->dev, sizeof(*bus), GFP_KERNEL);
+ 	if (!bus)
+@@ -1016,10 +1017,17 @@ static int aspeed_i2c_probe_bus(struct platform_device *pdev)
+ 
+ 	match = of_match_node(aspeed_i2c_bus_of_table, pdev->dev.of_node);
+ 	if (!match)
++    {
+ 		bus->get_clk_reg_val = aspeed_i2c_24xx_get_clk_reg_val;
++        adam_flag |= (1 << 0);
++    }
+ 	else
++    {
+ 		bus->get_clk_reg_val = (u32 (*)(struct device *, u32))
+ 				match->data;
++        adam_flag |= (1 << 1);
++    }
++    printk("Adam[0x%x] clk_reg=0x%x\n", adam_flag, bus->get_clk_reg_val);
+ 
+ 	/* Initialize the I2C adapter */
+ 	spin_lock_init(&bus->lock);
+@@ -1048,6 +1056,7 @@ static int aspeed_i2c_probe_bus(struct platform_device *pdev)
+ 	irq = irq_of_parse_and_map(pdev->dev.of_node, 0);
+ 	ret = devm_request_irq(&pdev->dev, irq, aspeed_i2c_bus_irq,
+ 			       0, dev_name(&pdev->dev), bus);
++    printk("Adam[0x%x] irq=0x%x\n", adam_flag, irq);
+ 	if (ret < 0)
+ 		return ret;
+ 
+@@ -1057,8 +1066,8 @@ static int aspeed_i2c_probe_bus(struct platform_device *pdev)
+ 
+ 	platform_set_drvdata(pdev, bus);
+ 
+-	dev_info(bus->dev, "i2c bus %d registered, irq %d\n",
+-		 bus->adap.nr, irq);
++	dev_info(bus->dev, "i2c bus %d registered, irq %d, freq %d\n",
++		 bus->adap.nr, irq, bus->bus_frequency);
+ 
+ 	return 0;
+ }

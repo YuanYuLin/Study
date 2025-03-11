@@ -1,0 +1,76 @@
+diff --git a/arch/arm/boot/dts/aspeed-g6-pinctrl.dtsi b/arch/arm/boot/dts/aspeed-g6-pinctrl.dtsi
+index 7cd4f075e325..245414f1e21e 100644
+--- a/arch/arm/boot/dts/aspeed-g6-pinctrl.dtsi
++++ b/arch/arm/boot/dts/aspeed-g6-pinctrl.dtsi
+@@ -412,11 +412,6 @@ pinctrl_ncts2_default: ncts2_default {
+ 		groups = "NCTS2";
+ 	};
+ 
+-	pinctrl_ncts3_default: ncts3_default {
+-		function = "NCTS3";
+-		groups = "NCTS3";
+-	};
+-
+ 	pinctrl_ncts4_default: ncts4_default {
+ 		function = "NCTS4";
+ 		groups = "NCTS4";
+@@ -432,11 +427,6 @@ pinctrl_ndcd2_default: ndcd2_default {
+ 		groups = "NDCD2";
+ 	};
+ 
+-	pinctrl_ndcd3_default: ndcd3_default {
+-		function = "NDCD3";
+-		groups = "NDCD3";
+-	};
+-
+ 	pinctrl_ndcd4_default: ndcd4_default {
+ 		function = "NDCD4";
+ 		groups = "NDCD4";
+@@ -452,11 +442,6 @@ pinctrl_ndsr2_default: ndsr2_default {
+ 		groups = "NDSR2";
+ 	};
+ 
+-	pinctrl_ndsr3_default: ndsr3_default {
+-		function = "NDSR3";
+-		groups = "NDSR3";
+-	};
+-
+ 	pinctrl_ndsr4_default: ndsr4_default {
+ 		function = "NDSR4";
+ 		groups = "NDSR4";
+@@ -472,11 +457,6 @@ pinctrl_ndtr2_default: ndtr2_default {
+ 		groups = "NDTR2";
+ 	};
+ 
+-	pinctrl_ndtr3_default: ndtr3_default {
+-		function = "NDTR3";
+-		groups = "NDTR3";
+-	};
+-
+ 	pinctrl_ndtr4_default: ndtr4_default {
+ 		function = "NDTR4";
+ 		groups = "NDTR4";
+@@ -492,11 +472,6 @@ pinctrl_nri2_default: nri2_default {
+ 		groups = "NRI2";
+ 	};
+ 
+-	pinctrl_nri3_default: nri3_default {
+-		function = "NRI3";
+-		groups = "NRI3";
+-	};
+-
+ 	pinctrl_nri4_default: nri4_default {
+ 		function = "NRI4";
+ 		groups = "NRI4";
+@@ -512,11 +487,6 @@ pinctrl_nrts2_default: nrts2_default {
+ 		groups = "NRTS2";
+ 	};
+ 
+-	pinctrl_nrts3_default: nrts3_default {
+-		function = "NRTS3";
+-		groups = "NRTS3";
+-	};
+-
+ 	pinctrl_nrts4_default: nrts4_default {
+ 		function = "NRTS4";
+ 		groups = "NRTS4";

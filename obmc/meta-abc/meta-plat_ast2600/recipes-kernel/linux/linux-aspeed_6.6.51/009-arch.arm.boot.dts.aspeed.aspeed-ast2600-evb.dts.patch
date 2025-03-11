@@ -1,0 +1,48 @@
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dts b/arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dts
+index 3b3fefee4630..40f38bc1a025 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dts
++++ b/arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dts
+@@ -235,6 +235,43 @@ ipmb0@10 {
+ 
+ &i2c5 {
+ 	status = "okay";
++    /*  Slot 0,
++     *  Slot 1,
++     *  Slot 2,
++     *  Slot 3
++     */
++
++    i2c-mux@72 {
++        compatible = "nxp,pca9545";
++        reg = <0x72>;
++        #address-cells = <1>;
++        #size-cells = <0>;
++        i2c-mux-idle-disconnect;    /* may use mux@72 next. */
++
++        i2c_pci1: i2c@0 {
++            #address-cells = <1>;
++            #size-cells = <0>;
++            reg = <0>;
++        };
++
++        i2c_pci2: i2c@1 {
++            #address-cells = <1>;
++            #size-cells = <0>;
++            reg = <1>;
++        };
++
++        i2c_pci3: i2c@2 {
++            #address-cells = <1>;
++            #size-cells = <0>;
++            reg = <2>;
++        };
++
++        i2c_pci4: i2c@3 {
++            #address-cells = <1>;
++            #size-cells = <0>;
++            reg = <3>;
++        };
++    };
+ };
+ 
+ &i2c6 {

@@ -1,0 +1,40 @@
+diff --git a/arch/arm/boot/dts/aspeed-g6.dtsi b/arch/arm/boot/dts/aspeed-g6.dtsi
+index e24145699ed5..0affbc4b0606 100644
+--- a/arch/arm/boot/dts/aspeed-g6.dtsi
++++ b/arch/arm/boot/dts/aspeed-g6.dtsi
+@@ -864,7 +864,7 @@ i2c0: i2c-bus@80 {
+ 		bus-frequency = <100000>;
+ 		pinctrl-names = "default";
+ 		pinctrl-0 = <&pinctrl_i2c1_default>;
+-		status = "disabled";
++		status = "okay";
+ 	};
+ 
+ 	i2c1: i2c-bus@100 {
+@@ -879,7 +879,7 @@ i2c1: i2c-bus@100 {
+ 		bus-frequency = <100000>;
+ 		pinctrl-names = "default";
+ 		pinctrl-0 = <&pinctrl_i2c2_default>;
+-		status = "disabled";
++		status = "okay";
+ 	};
+ 
+ 	i2c2: i2c-bus@180 {
+@@ -894,7 +894,7 @@ i2c2: i2c-bus@180 {
+ 		bus-frequency = <100000>;
+ 		pinctrl-names = "default";
+ 		pinctrl-0 = <&pinctrl_i2c3_default>;
+-		status = "disabled";
++		status = "okay";
+ 	};
+ 
+ 	i2c3: i2c-bus@200 {
+@@ -909,7 +909,7 @@ i2c3: i2c-bus@200 {
+ 		bus-frequency = <100000>;
+ 		pinctrl-names = "default";
+ 		pinctrl-0 = <&pinctrl_i2c4_default>;
+-		status = "disabled";
++		status = "okay";
+ 	};
+ 
+ 	i2c4: i2c-bus@280 {
