@@ -1,0 +1,79 @@
+#!/bin/bash
+
+if [ -z "$ZSH_NAME" ] && [ "$(basename -- "$0")" = "setup" ]; then
+    echo The script must be sourced, not executed
+    exit 1
+fi
+
+machine() {
+    local target=$1
+    local build_dir=$2
+    local cfg name tmpl
+    local configs
+
+	# zsh requires wordsplit so that variable expansion behaves like bash
+	if [ -n "$ZSH_NAME" ]; then
+		setopt local_options shwordsplit
+	fi
+	if which find > /dev/null 2>&1; then
+        configs="$(find meta-* -path "*/conf/machine/*.conf")"
+	else
+		configs=$(ls -1 meta-*/meta-*/conf/machine/*.conf meta-*/conf/machine/*.conf)
+	fi
+
+    for cfg in $configs; do
+        name=${cfg##*/}
+        name=${name%.conf}
+        tmpl=${cfg%/machine/*.conf}
+
+        if [ "$tmpl" = "poky/meta/conf" ]; then
+            # This is a QEMU machine, use phosphor defaults.
+            tmpl="meta-phosphor/conf"
+        else
+            # Skip any machines that don't support meta-phosphor.
+            if [ ! -e "$tmpl/templates/default/bblayers.conf.sample" ]; then
+                continue
+            fi
+            if ! grep -q "##OEROOT##/meta-phosphor" "$tmpl/templates/default/bblayers.conf.sample"; then
+                continue
+            fi
+        fi
+
+        # If a target is specified, then check for a match,
+        # otherwise just list what we've discovered
+        if [ -n "$target" ]; then
+            if [ "${name}" = "${target}" ]; then
+                echo "Machine ${target} found in ${tmpl%/conf}"
+                mkdir -p "${build_dir}"
+                TEMPLATECONF="${tmpl}/templates/default" source \
+                        oe-init-build-env "${build_dir}"
+
+                if [ "$(cat conf/templateconf.cfg)" = "${tmpl}/templates/default" ]; then
+                    sed "s/^\(MACHINE\s*[?:]*\s*=\s*\).*$/\1\"${target}\"/" \
+                        -i conf/local.conf
+                fi
+                return
+            fi
+        else
+            echo "${name}"
+        fi
+    done
+
+    [ -n "$target" ] && echo "No such machine!" >&2 && return 1
+}
+
+export PSEUDO_DISABLED=1
+
+if [ -z "$1" ]; then
+	echo Target machine must be specified. Use one of:
+	echo
+    machine
+else
+    bld_dir=$2
+    if [ -z "$2" ]; then
+        echo "Build folder must be specified!!!!!"
+    else
+        machine "$1" "$bld_dir"
+    fi
+fi
+
