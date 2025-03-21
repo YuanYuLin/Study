@@ -12,5 +12,5 @@ BBLAYERS ?= " \
   ##OEROOT##/meta-openembedded/meta-python \
   ##OEROOT##/meta-phosphor \
   ##OEROOT##/meta-abc/meta-common \
-  ##OEROOT##/meta-abc/meta-plat_rpi1 \
+  ##OEROOT##/meta-abc/meta-plat_rpi1a \
   "

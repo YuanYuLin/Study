@@ -5,6 +5,7 @@ rodir=run/initramfs/ro
 rwdir=run/initramfs/rw
 upper=$rwdir/cow
 work=$rwdir/work
+ROOTFS=/rootfs.squashfs.ast2600
 
 cd /
 
@@ -22,10 +23,13 @@ mkdir -p $rodir $rwdir
 cp -rp init shutdown update whitelist bin sbin usr lib etc var run/initramfs
 
 prepare_rootfs_tftp() {
+    ifconfig lo up
+    sleep 2
+    ifconfig eth0 up
     ifconfig eth0 192.168.70.200
-    echo "Downloading '/rootfs.squashfs' from '192.168.70.254' ..."
+    echo "Downloading '$ROOTFS' from '192.168.70.254' ..."
 
-    tftp -g -r /rootfs.squashfs -l /rootfs.squashfs 192.168.70.254
+    tftp -g -r $ROOTFS -l $ROOTFS 192.168.70.254
 }
 
 prepare_rootfs_emmc() {
@@ -41,7 +45,7 @@ umount /mnt
 mount_rootfs() {
 roopts=ro
 rofst=squashfs
-rodev=/rootfs.squashfs
+rodev=$ROOTFS
 mount "$rodev" $rodir -t $rofst -o $roopts
 
 mount -t tmpfs -o mode=755 tmpfs $rwdir
