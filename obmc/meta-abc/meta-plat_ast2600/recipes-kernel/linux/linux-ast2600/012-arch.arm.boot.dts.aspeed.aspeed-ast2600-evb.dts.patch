@@ -1,0 +1,25 @@
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dts b/arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dts
+index 7b91d67182a5..9175853bb01f 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dts
++++ b/arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dts
+@@ -184,7 +184,7 @@ flash@0 {
+ 		label = "bmc";
+ 		spi-rx-bus-width = <4>;
+ 		spi-max-frequency = <50000000>;
+-#include "openbmc-flash-layout-64.dtsi"
++#include "openbmc-flash-layout-abc.dtsi"
+ 	};
+ };
+ 
+@@ -200,6 +200,11 @@ flash@0 {
+ 		spi-rx-bus-width = <4>;
+ 		spi-max-frequency = <100000000>;
+ 	};
++    spidev@0 {
++        compatible = "spidev";
++        reg = <0>;
++        spi-max-frequency = <50000000>;
++    };
+ };
+ 
+ &uart5 {

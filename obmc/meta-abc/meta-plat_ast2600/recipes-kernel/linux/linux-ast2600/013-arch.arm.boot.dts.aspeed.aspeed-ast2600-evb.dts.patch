@@ -1,0 +1,23 @@
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dts b/arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dts
+index 9175853bb01f..202714756d14 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dts
++++ b/arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dts
+@@ -207,6 +207,18 @@ spidev@0 {
+     };
+ };
+ 
++&spi2 {
++    status = "okay";
++    pinctrl-names = "default";
++    pinctrl-0 = <&pinctrl_spi2_default>;
++
++    spidev@0 {
++        compatible = "spidev";
++        reg = <0>;
++        spi-max-frequency = <50000000>;
++    };
++};
++
+ &uart5 {
+ 	// Workaround for A0
+ 	compatible = "snps,dw-apb-uart";

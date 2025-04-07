@@ -1,0 +1,18 @@
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dts b/arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dts
+index bf613b1de361..d4e77e9f7b8e 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dts
++++ b/arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dts
+@@ -213,6 +213,13 @@ &spi2 {
+     pinctrl-names = "default";
+     pinctrl-0 = <&pinctrl_spi2_default &pinctrl_spi2cs1_default &pinctrl_spi2cs2_default>;
+ 
++    flash@0 {
++        status = "okay";
++        m25p,fast-read;
++        label = "pnor";
++        spi-rx-bus-width = <4>;
++        spi-max-frequency = <100000000>;
++    };
+     spidev@0 {
+         status = "okay";
+         compatible = "spidev";

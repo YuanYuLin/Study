@@ -1,0 +1,15 @@
+diff --git a/arch/arm/dts/ast2600-evb.dts b/arch/arm/dts/ast2600-evb.dts
+index a097f320e4..23f1649ce9 100644
+--- a/arch/arm/dts/ast2600-evb.dts
++++ b/arch/arm/dts/ast2600-evb.dts
+@@ -178,8 +178,8 @@
+ 	status = "okay";
+ 	#address-cells = <1>;
+ 	#size-cells = <0>;
+-	ethphy0: ethernet-phy@0 {
+-		reg = <0>;
++	ethphy0: ethernet-phy@25 {
++		reg = <25>;
+ 	};
+ };
+ 

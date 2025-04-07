@@ -17,8 +17,8 @@ ARMPKGARCH:tune-arm1176jzfshf = "${ARMPKGARCH:tune-arm1176jzfs}"
 TUNE_FEATURES:tune-arm1176jzfshf = "${TUNE_FEATURES:tune-arm1176jzfs} callconvention-hard"
 PACKAGE_EXTRA_ARCHS:tune-arm1176jzfshf = "${PACKAGE_EXTRA_ARCHS:tune-armv6thf} arm1176jzfshf-vfp"
 
-PREFERRED_PROVIDER_virtual/kernel ?= "linux-rpi1"
-PREFERRED_PROVIDER_virtual/bootloader = "u-boot"
+PREFERRED_PROVIDER_virtual/kernel ?= "linux-rpi1a"
+PREFERRED_PROVIDER_virtual/bootloader ?= "u-boot"
 
 KERNEL_IMAGETYPE ?= "fitImage"
 KERNEL_CLASSES ?= "kernel-fitimage"

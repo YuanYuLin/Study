@@ -5,7 +5,7 @@ rodir=run/initramfs/ro
 rwdir=run/initramfs/rw
 upper=$rwdir/cow
 work=$rwdir/work
-ROOTFS=/rootfs.squashfs.rpi
+ROOTFS=/rootfs.squashfs.rpi1a
 
 cd /
 
@@ -15,7 +15,7 @@ mount sys sys -tsysfs
 mount proc proc -tproc
 if ! grep run proc/mounts
 then
-	mount tmpfs run -t tmpfs -o mode=755,nodev
+	mount tmpfs run -t tmpfs -o mode=755,size=50M,nodev
 fi
 
 mkdir -p $rodir $rwdir

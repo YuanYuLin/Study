@@ -1,0 +1,28 @@
+diff --git a/arch/arm/boot/dts/aspeed/openbmc-flash-layout-abc.dtsi b/arch/arm/boot/dts/aspeed/openbmc-flash-layout-abc.dtsi
+new file mode 100644
+index 000000000000..4075ef0416c3
+--- /dev/null
++++ b/arch/arm/boot/dts/aspeed/openbmc-flash-layout-abc.dtsi
+@@ -0,0 +1,22 @@
++// SPDX-License-Identifier: GPL-2.0+
++
++partitions {
++       compatible = "fixed-partitions";
++       #address-cells = <1>;
++       #size-cells = <1>;
++
++       u-boot@0 {
++               reg = <0x0 0xE0000>;
++               label = "u-boot";
++       };
++
++       u-boot-env@E0000 {
++               reg = <0xE0000 0x20000>;
++               label = "u-boot-env";
++       };
++
++       rwfs@100000 {
++               reg = <0x100000 0x200000>;
++               label = "rwfs";
++       };
++};

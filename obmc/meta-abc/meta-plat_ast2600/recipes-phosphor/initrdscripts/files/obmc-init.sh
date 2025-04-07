@@ -15,7 +15,7 @@ mount sys sys -tsysfs
 mount proc proc -tproc
 if ! grep run proc/mounts
 then
-	mount tmpfs run -t tmpfs -o mode=755,nodev
+	mount tmpfs run -t tmpfs -o mode=755,size=50M,nodev
 fi
 
 mkdir -p $rodir $rwdir
