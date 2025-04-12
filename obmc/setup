@@ -71,7 +71,7 @@ if [ -z "$1" ]; then
 else
     bld_dir=$2
     if [ -z "$2" ]; then
-        echo "Build folder must be specified!!!!!"
+        echo "Error: Build folder not specified."
     else
         machine "$1" "$bld_dir"
     fi
