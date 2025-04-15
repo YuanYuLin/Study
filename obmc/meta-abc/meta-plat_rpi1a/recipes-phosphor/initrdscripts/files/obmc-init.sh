@@ -22,6 +22,16 @@ mkdir -p $rodir $rwdir
 
 cp -rp init shutdown update whitelist bin sbin usr lib etc var run/initramfs
 
+export_cmdline_var() {
+    for arg in $(cat /proc/cmdline); do
+        case "$arg" in
+        BOOT=*)
+            export "$arg"
+            ;;
+        esac
+    done
+}
+
 prepare_rootfs_tftp() {
     ifconfig lo up
     sleep 2
@@ -30,43 +40,51 @@ prepare_rootfs_tftp() {
     echo "Downloading '$ROOTFS' from '192.168.70.254' ..."
 
     tftp -g -r $ROOTFS -l $ROOTFS 192.168.70.254
+    ifconfig eth0 down
 }
 
 prepare_rootfs_emmc() {
-# Mount EMMC block
-echo "Mounting /dev/mmcblk0p1 to /mnt ..."
-mount -t vfat /dev/mmcblk0p1 /mnt
-cp -v /mnt/rootfs.squashfs /
+    echo "Mounting /dev/mmcblk0p1 to /mnt ..."
+    mount -t vfat /dev/mmcblk0p1 /mnt
+    cp -v /mnt/$ROOTFS $ROOTFS
 
-# Unmount
-umount /mnt
+    umount /mnt
+    echo "Unmounted"
 }
 
 mount_rootfs() {
-roopts=ro
-rofst=squashfs
-rodev=$ROOTFS
-mount "$rodev" $rodir -t $rofst -o $roopts
+    roopts=ro
+    rofst=squashfs
+    rodev=$ROOTFS
+    mount "$rodev" $rodir -t $rofst -o $roopts
 
-mount -t tmpfs -o mode=755 tmpfs $rwdir
-mkdir -p $upper
-mkdir -p $work
+    mount -t tmpfs -o mode=755 tmpfs $rwdir
+    mkdir -p $upper
+    mkdir -p $work
 
-mount -t overlay overlay -o lowerdir=$rodir,upperdir=$upper,workdir=$work  /root
+    mount -t overlay overlay -o lowerdir=$rodir,upperdir=$upper,workdir=$work  /root
 }
 
 switch_rootfs() {
-init=/sbin/init
-exec switch_root /root $init
+    init=/sbin/init
+    exec switch_root /root $init
 }
 
 debug_takeover() {
-exec /bin/sh
+    exec /bin/sh
 }
 
-#debug_takeover
+export_cmdline_var
 
-#prepare_rootfs_emmc
-prepare_rootfs_tftp
+if [ "$BOOT" == "tftp" ];
+then
+    prepare_rootfs_tftp
+elif [ "$BOOT" == "mmc" ];
+then
+    prepare_rootfs_emmc
+else
+    debug_takeover
+fi
+
 mount_rootfs
 switch_rootfs
