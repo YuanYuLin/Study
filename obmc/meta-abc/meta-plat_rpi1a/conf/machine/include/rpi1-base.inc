@@ -25,3 +25,4 @@ KERNEL_CLASSES ?= "kernel-fitimage"
 INITRAMFS_IMAGE ?= "aspeed-image-initramfs"
 INITRAMFS_FSTYPES ?= "cpio.xz"
 
+SERIAL_CONSOLES ?= "115200;ttyAMA0"
