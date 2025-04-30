@@ -1,0 +1,4 @@
+SANITY_VERSION 1
+TMPDIR /home/openbmc/embedded_Adam/Study/build_plat_rpi2B/tmp
+SSTATE_DIR /home/openbmc/embedded_Adam/Study/build_plat_rpi2B/sstate-cache
+NATIVELSBSTRING ubuntu-22.04

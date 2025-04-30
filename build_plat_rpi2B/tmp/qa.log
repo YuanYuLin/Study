@@ -1,0 +1,5 @@
+meta-environment-plat_rpi2B-1.0: PN: meta-environment-plat_rpi2B is upper case, this can result in unexpected behavior. [uppercase-pn]
+meta-environment-extsdk-plat_rpi2B-1.0: PN: meta-environment-extsdk-plat_rpi2B is upper case, this can result in unexpected behavior. [uppercase-pn]
+packagegroup-go-cross-canadian-plat_rpi2B-1.0: PN: packagegroup-go-cross-canadian-plat_rpi2B is upper case, this can result in unexpected behavior. [uppercase-pn]
+packagegroup-rust-cross-canadian-plat_rpi2B-1.0: PN: packagegroup-rust-cross-canadian-plat_rpi2B is upper case, this can result in unexpected behavior. [uppercase-pn]
+packagegroup-cross-canadian-plat_rpi2B-1.0: PN: packagegroup-cross-canadian-plat_rpi2B is upper case, this can result in unexpected behavior. [uppercase-pn]

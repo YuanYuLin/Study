@@ -1,0 +1,53 @@
+WARNING: /home/openbmc/embedded_Adam/Study/obmc/meta/recipes-core/meta/meta-environment.bb: QA Issue: PN: meta-environment-plat_rpi2B is upper case, this can result in unexpected behavior. [uppercase-pn]
+WARNING: /home/openbmc/embedded_Adam/Study/obmc/meta/recipes-core/meta/meta-environment-extsdk.bb: QA Issue: PN: meta-environment-extsdk-plat_rpi2B is upper case, this can result in unexpected behavior. [uppercase-pn]
+WARNING: /home/openbmc/embedded_Adam/Study/obmc/meta/recipes-core/packagegroups/packagegroup-go-cross-canadian.bb: QA Issue: PN: packagegroup-go-cross-canadian-plat_rpi2B is upper case, this can result in unexpected behavior. [uppercase-pn]
+WARNING: /home/openbmc/embedded_Adam/Study/obmc/meta/recipes-core/os-release/os-release.bb: Unexpected exception from 'git' call: Execution of 'export PSEUDO_DISABLED=1; git --work-tree /home/openbmc/embedded_Adam/Study/obmc --git-dir /home/openbmc/embedded_Adam/Study/obmc/.git describe --dirty' failed with exit code 128:
+fatal: not a git repository: '/home/openbmc/embedded_Adam/Study/obmc/.git'
+
+WARNING: /home/openbmc/embedded_Adam/Study/obmc/meta/recipes-core/packagegroups/packagegroup-rust-cross-canadian.bb: QA Issue: PN: packagegroup-rust-cross-canadian-plat_rpi2B is upper case, this can result in unexpected behavior. [uppercase-pn]
+WARNING: /home/openbmc/embedded_Adam/Study/obmc/meta/recipes-core/packagegroups/packagegroup-cross-canadian.bb: QA Issue: PN: packagegroup-cross-canadian-plat_rpi2B is upper case, this can result in unexpected behavior. [uppercase-pn]
+NOTE: Resolving any missing task queue dependencies
+
+Build Configuration:
+BB_VERSION           = "2.4.0"
+BUILD_SYS            = "x86_64-linux"
+NATIVELSBSTRING      = "ubuntu-22.04"
+TARGET_SYS           = "arm-openbmc-linux-gnueabi"
+MACHINE              = "plat_rpi2B"
+DISTRO               = "openbmc-phosphor"
+DISTRO_VERSION       = "nodistro.0"
+TUNE_FEATURES        = "arm armv7ve vfp neon"
+TARGET_FPU           = "softfp"
+meta                 
+meta-oe              
+meta-networking      
+meta-python          
+meta-phosphor        = "2.14.0-branch:67c9d4e715c705cd05fd04f7c8cd4fad300a4666"
+meta-common          
+meta-plat_rpi2B      = "meta-plat_rpi1B:bc741a8b98a50e37b662da1dbb15c4539c4ac0d0"
+
+ERROR: Command execution failed: Traceback (most recent call last):
+  File "/home/openbmc/embedded_Adam/Study/openbmc/poky/bitbake/lib/bb/command.py", line 127, in runAsyncCommand
+    commandmethod(self.cmds_async, self, options)
+  File "/home/openbmc/embedded_Adam/Study/openbmc/poky/bitbake/lib/bb/command.py", line 610, in buildTargets
+    command.cooker.buildTargets(pkgs_to_build, task)
+  File "/home/openbmc/embedded_Adam/Study/openbmc/poky/bitbake/lib/bb/cooker.py", line 1591, in buildTargets
+    rq = bb.runqueue.RunQueue(self, self.data, self.recipecaches, taskdata, runlist)
+  File "/home/openbmc/embedded_Adam/Study/openbmc/poky/bitbake/lib/bb/runqueue.py", line 1307, in __init__
+    self.dm = monitordisk.diskMonitor(cfgData)
+  File "/home/openbmc/embedded_Adam/Study/openbmc/poky/bitbake/lib/bb/monitordisk.py", line 176, in __init__
+    self.devDict = getDiskData(BBDirs)
+  File "/home/openbmc/embedded_Adam/Study/openbmc/poky/bitbake/lib/bb/monitordisk.py", line 121, in getDiskData
+    bb.utils.mkdirhier(path)
+  File "/home/openbmc/embedded_Adam/Study/openbmc/poky/bitbake/lib/bb/utils.py", line 767, in mkdirhier
+    raise e
+  File "/home/openbmc/embedded_Adam/Study/openbmc/poky/bitbake/lib/bb/utils.py", line 764, in mkdirhier
+    os.makedirs(directory)
+  File "/usr/lib/python3.10/os.py", line 215, in makedirs
+    makedirs(head, exist_ok=exist_ok)
+  File "/usr/lib/python3.10/os.py", line 215, in makedirs
+    makedirs(head, exist_ok=exist_ok)
+  File "/usr/lib/python3.10/os.py", line 225, in makedirs
+    mkdir(name, mode)
+PermissionError: [Errno 13] Permission denied: '/data'
+
