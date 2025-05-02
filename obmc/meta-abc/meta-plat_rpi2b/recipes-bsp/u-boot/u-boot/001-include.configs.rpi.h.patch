@@ -1,0 +1,15 @@
+diff --git a/include/configs/rpi.h b/include/configs/rpi.h
+index cd8fe8b518..92657c7455 100644
+--- a/include/configs/rpi.h
++++ b/include/configs/rpi.h
+@@ -158,10 +158,6 @@
+ #include <config_distro_bootcmd.h>
+ 
+ #define CONFIG_EXTRA_ENV_SETTINGS \
+-	"dhcpuboot=usb start; dhcp u-boot.uimg; bootm\0" \
+-	ENV_DEVICE_SETTINGS \
+-	ENV_DFU_SETTINGS \
+-	ENV_MEM_LAYOUT_SETTINGS \
+ 	BOOTENV
+ 
+ 
