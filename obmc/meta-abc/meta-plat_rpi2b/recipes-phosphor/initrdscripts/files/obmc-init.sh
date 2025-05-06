@@ -5,7 +5,7 @@ rodir=run/initramfs/ro
 rwdir=run/initramfs/rw
 upper=$rwdir/cow
 work=$rwdir/work
-ROOTFS=/rootfs.squashfs.rpi1a
+ROOTFS=/rootfs.squashfs.rpi2b
 
 cd /
 

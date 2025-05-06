@@ -1,4 +1,4 @@
-DESCRIPTION = "Linux kernel for RaspberryPi 1"
+DESCRIPTION = "Linux kernel for abc"
 SECTION = "kernel"
 LICENSE = "GPL-2.0-only"
 

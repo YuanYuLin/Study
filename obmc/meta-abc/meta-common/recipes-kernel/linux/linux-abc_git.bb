@@ -5,6 +5,3 @@ SRCREV = "ca2478a7d974f38d29d27acb42a952c7f168916e"
 
 require linux.inc
 
-SRC_URI:append = " \
-  file://defconfig \
-  "
