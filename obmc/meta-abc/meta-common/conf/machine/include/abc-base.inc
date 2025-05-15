@@ -22,3 +22,5 @@ FLASH_SIZE = "65536"
 # u-boot will be built failed.
 SOCSEC_SIGN_ENABLE = "0"
 
+#IMAGE_CLASSES:append = " abc-rootfs-postcommands"
+
