@@ -1,4 +1,5 @@
-MACHINE ??= "rpi1"
+MACHINE ??= "plat_x86_64"
+# MACHINE ??= "qemux86-64"
 DISTRO ?= "abc"
 PACKAGE_CLASSES ?= "package_ipk"
 SANITY_TESTED_DISTROS:append ?= " *"

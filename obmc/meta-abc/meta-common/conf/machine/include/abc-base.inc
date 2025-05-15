@@ -10,6 +10,7 @@ INITRAMFS_FSTYPES ?= "cpio.xz"
 
 #FLASH_SIZE = "32768"
 FLASH_SIZE = "65536"
+#FLASH_SIZE = "131072"
 
 # Disable hardware root of trust by default.
 # If users want to enable secure boot,

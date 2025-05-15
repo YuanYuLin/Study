@@ -1,5 +1,5 @@
 MACHINE ??= "rpi1"
-DISTRO ?= "openbmc-phosphor"
+DISTRO ?= "abc"
 PACKAGE_CLASSES ?= "package_ipk"
 SANITY_TESTED_DISTROS:append ?= " *"
 EXTRA_IMAGE_FEATURES ?= "debug-tweaks"
