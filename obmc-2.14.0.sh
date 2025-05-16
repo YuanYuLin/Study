@@ -19,8 +19,5 @@ cd "$CLONE_DIR" || exit 1
 echo "Checking out tag $TAG..."
 git checkout tags/"$TAG" -b "$TAG-branch" || { echo "切換到 $TAG 失敗！"; exit 1; }
 
-echo "Initializing and updating submodules..."
-git submodule update --init --recursive || { echo "Submodule 更新失敗！"; exit 1; }
-
-echo "OpenBMC 版本 $TAG 準備完成！"
+eobmc-2.14.0.shcho "OpenBMC 版本 $TAG 準備完成！"
 
