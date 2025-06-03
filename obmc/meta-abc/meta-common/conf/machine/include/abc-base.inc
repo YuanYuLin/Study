@@ -5,7 +5,6 @@ PREFERRED_PROVIDER_virtual/bootloader ?= "u-boot"
 
 KERNEL_IMAGETYPE ?= "fitImage"
 KERNEL_CLASSES ?= "kernel-fitimage"
-INITRAMFS_IMAGE ?= "aspeed-image-initramfs"
 INITRAMFS_FSTYPES ?= "cpio.xz"
 
 #FLASH_SIZE = "32768"
@@ -21,6 +20,4 @@ FLASH_SIZE = "65536"
 # If users enable socsec signing but do not provide OTP config,
 # u-boot will be built failed.
 SOCSEC_SIGN_ENABLE = "0"
-
-#IMAGE_CLASSES:append = " abc-rootfs-postcommands"
 

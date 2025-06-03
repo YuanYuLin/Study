@@ -16,7 +16,7 @@ python do_post_commands() {
     bb.debug("Example '%s' - %s bytes!" % (abc, abcd))
     '''
     #execute shell
-    bb.build.exec_func("mk_empty_dir_image", d)
+    #bb.build.exec_func("mk_empty_dir_image", d)
 }
 
 addtask do_post_commands after do_image_complete before do_populate_lic_deploy
