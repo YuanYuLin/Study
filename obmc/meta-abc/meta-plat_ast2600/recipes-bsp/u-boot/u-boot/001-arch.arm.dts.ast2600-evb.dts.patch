@@ -8,8 +8,8 @@ index a097f320e4..23f1649ce9 100644
  	#size-cells = <0>;
 -	ethphy0: ethernet-phy@0 {
 -		reg = <0>;
-+	ethphy0: ethernet-phy@25 {
-+		reg = <25>;
++	ethphy0: ethernet-phy@0 {
++		reg = <0>;
  	};
  };
  

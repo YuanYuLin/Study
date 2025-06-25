@@ -1,0 +1,13 @@
+diff --git a/src/entity_manager.cpp b/src/entity_manager.cpp
+index c28e50fe..507c1bd9 100644
+--- a/src/entity_manager.cpp
++++ b/src/entity_manager.cpp
+@@ -822,6 +822,8 @@ bool loadConfigurations(std::list<nlohmann::json>& configurations)
+ 
+     for (auto& jsonPath : jsonPaths)
+     {
++        std::cout << "loadConfigurations :" << jsonPath.c_str() 
++                  << "\n";
+         std::ifstream jsonStream(jsonPath.c_str());
+         if (!jsonStream.good())
+         {

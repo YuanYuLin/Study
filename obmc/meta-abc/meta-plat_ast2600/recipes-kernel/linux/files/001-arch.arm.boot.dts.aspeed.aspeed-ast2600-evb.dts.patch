@@ -7,10 +7,10 @@ index de83c0eb1d6e..7b91d67182a5 100644
  	status = "okay";
  
 -	ethphy0: ethernet-phy@0 {
-+	ethphy0: ethernet-phy@25 {
++	ethphy0: ethernet-phy@0 {
  		compatible = "ethernet-phy-ieee802.3-c22";
 -		reg = <0>;
-+		reg = <25>;
++		reg = <0>;
  	};
  };
  
