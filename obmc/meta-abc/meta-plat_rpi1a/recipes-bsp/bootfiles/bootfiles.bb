@@ -37,8 +37,8 @@ do_deploy() {
     echo "core_freq=250"      >> ${DEPLOYDIR}/${BOOTFILES_DIR_NAME}/config.txt
     echo "kernel=u-boot.bin"  >> ${DEPLOYDIR}/${BOOTFILES_DIR_NAME}/config.txt
     echo "disable_overscan=1" >> ${DEPLOYDIR}/${BOOTFILES_DIR_NAME}/config.txt
-    echo "gpu_mem_256=32"     >> ${DEPLOYDIR}/${BOOTFILES_DIR_NAME}/config.txt
-    echo "gpu_mem_512=32"     >> ${DEPLOYDIR}/${BOOTFILES_DIR_NAME}/config.txt
+    #echo "gpu_mem_256=32"     >> ${DEPLOYDIR}/${BOOTFILES_DIR_NAME}/config.txt
+    #echo "gpu_mem_512=32"     >> ${DEPLOYDIR}/${BOOTFILES_DIR_NAME}/config.txt
     echo "gpu_mem=32"         >> ${DEPLOYDIR}/${BOOTFILES_DIR_NAME}/config.txt
     echo "sdram_freq=400"     >> ${DEPLOYDIR}/${BOOTFILES_DIR_NAME}/config.txt
     echo "over_voltage=0"     >> ${DEPLOYDIR}/${BOOTFILES_DIR_NAME}/config.txt
