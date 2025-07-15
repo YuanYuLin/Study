@@ -1,0 +1,130 @@
+[
+    {
+        "Exposes": [
+            {
+                "Instance": 1,
+                "SlotCount": 4,
+                "Name": "PSU",
+                "Address": "$Address",
+                "Bus": "$Bus",
+                "Labels": [
+                    "pin",
+                    "pout1",
+                    "vin",
+                    "iin",
+                    "iout1",
+                    "temp1",
+                    "fan1"
+                ],
+                "Type": "pmbus"
+            }
+        ],
+        "Name": "SLOT 1",
+        "Probe": "xyz.openbmc_project.Inventory.Item.I2CDevice({'Bus': 1, 'Address': 88})",
+        "Type": "PowerSupply",
+        "xyz.openbmc_project.Inventory.Decorator.FruDevice": {
+            "Address": "1",
+            "Bus": "4"
+        },
+        "xyz.openbmc_project.Inventory.Decorator.Ipmi": {
+            "EntityId": 10,
+            "EntityInstance": "1"
+        }
+    },
+    {
+        "Exposes": [
+            {
+                "Instance": 2,
+                "SlotCount": 4,
+                "Name": "PSU",
+                "Address": "$Address",
+                "Bus": "$Bus",
+                "Labels": [
+                    "pin",
+                    "pout1",
+                    "vin",
+                    "iin",
+                    "iout1",
+                    "temp1",
+                    "fan1"
+                ],
+                "Type": "pmbus"
+            }
+        ],
+        "Name": "SLOT 2",
+        "Probe": "xyz.openbmc_project.Inventory.Item.I2CDevice({'Bus': 1, 'Address': 89})",
+        "Type": "PowerSupply",
+        "xyz.openbmc_project.Inventory.Decorator.FruDevice": {
+            "Address": "2",
+            "Bus": "4"
+        },
+        "xyz.openbmc_project.Inventory.Decorator.Ipmi": {
+            "EntityId": 10,
+            "EntityInstance": "2"
+        }
+    },
+    {
+        "Exposes": [
+            {
+                "Instance": 3,
+                "SlotCount": 4,
+                "Name": "PSU",
+                "Address": "$Address",
+                "Bus": "$Bus",
+                "Labels": [
+                    "pin",
+                    "pout1",
+                    "vin",
+                    "iin",
+                    "iout1",
+                    "temp1",
+                    "fan1"
+                ],
+                "Type": "pmbus"
+            }
+        ],
+        "Name": "SLOT 3",
+        "Probe": "xyz.openbmc_project.Inventory.Item.I2CDevice({'Bus': 1, 'Address': 90})",
+        "Type": "PowerSupply",
+        "xyz.openbmc_project.Inventory.Decorator.FruDevice": {
+            "Address": "3",
+            "Bus": "4"
+        },
+        "xyz.openbmc_project.Inventory.Decorator.Ipmi": {
+            "EntityId": 10,
+            "EntityInstance": "3"
+        }
+    },
+    {
+        "Exposes": [
+            {
+                "Instance": 4,
+                "SlotCount": 4,
+                "Name": "PSU",
+                "Address": "$Address",
+                "Bus": "$Bus",
+                "Labels": [
+                    "pin",
+                    "pout1",
+                    "vin",
+                    "iin",
+                    "iout1",
+                    "temp1",
+                    "fan1"
+                ],
+                "Type": "pmbus"
+            }
+        ],
+        "Name": "SLOT 4",
+        "Probe": "xyz.openbmc_project.Inventory.Item.I2CDevice({'Bus': 1, 'Address': 91})",
+        "Type": "PowerSupply",
+        "xyz.openbmc_project.Inventory.Decorator.FruDevice": {
+            "Address": "4",
+            "Bus": "4"
+        },
+        "xyz.openbmc_project.Inventory.Decorator.Ipmi": {
+            "EntityId": 10,
+            "EntityInstance": "4"
+        }
+    }
+]
