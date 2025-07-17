@@ -1,0 +1,39 @@
+diff --git a/arch/arm/boot/dts/broadcom/bcm2835-rpi-a.dts b/arch/arm/boot/dts/broadcom/bcm2835-rpi-a.dts
+index 2726c00431e8..b928adc63c00 100644
+--- a/arch/arm/boot/dts/broadcom/bcm2835-rpi-a.dts
++++ b/arch/arm/boot/dts/broadcom/bcm2835-rpi-a.dts
+@@ -16,6 +16,29 @@ memory@0 {
+ 	};
+ };
+ 
++/{
++    gpio-sim {
++        compatible = "gpio-simulator";
++
++        bank0: bank0 {
++            gpio-controller;
++            #gpio-cells = <2>;
++            ngpios = <16>;
++            gpio-sim,label = "dt-bank0";
++            gpio-line-names = "GPIO00", "GPIO01", "GPIO02", "GPIO03", "GPIO04", "GPIO05", "GPIO06", "GPIO07",
++                              "GPIO08", "GPIO09", "GPIO10", "GPIO11", "GPIO12", "GPIO13", "GPIO14", "GPIO15";
++        };
++
++        bank1: bank1 {
++            gpio-controller;
++            #gpio-cells = <2>;
++            ngpios = <8>;
++            gpio-sim,label = "dt-bank1";
++            gpio-line-names = "LED0", "LED1", "LED2", "LED3", "LED4", "LED5", "LED6", "LED7";
++        };
++    };
++};
++
+ &gpio {
+ 	/*
+ 	 * Taken from Raspberry-Pi-Rev-1.0-Model-AB-Schematics.pdf
+@@ -121,3 +144,4 @@ &uart0 {
+ 	pinctrl-0 = <&uart0_gpio14>;
+ 	status = "okay";
+ };
++

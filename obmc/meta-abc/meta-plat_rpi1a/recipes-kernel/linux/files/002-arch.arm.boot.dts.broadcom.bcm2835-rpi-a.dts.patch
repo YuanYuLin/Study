@@ -1,0 +1,22 @@
+diff --git a/arch/arm/boot/dts/broadcom/bcm2835-rpi-a.dts b/arch/arm/boot/dts/broadcom/bcm2835-rpi-a.dts
+index b928adc63c00..a563c03c95af 100644
+--- a/arch/arm/boot/dts/broadcom/bcm2835-rpi-a.dts
++++ b/arch/arm/boot/dts/broadcom/bcm2835-rpi-a.dts
+@@ -37,6 +37,17 @@ bank1 {
+             gpio-line-names = "LED0", "LED1", "LED2", "LED3", "LED4", "LED5", "LED6", "LED7";
+         };
+     };
++
++    leds {
++        compatible = "gpio-leds";
++
++        led-0 {
++            label = "bmc_heartbeat_amber";
++            gpios = <&bank1 0 GPIO_ACTIVE_HIGH>;
++            linux,default-trigger = "heartbeat";
++        };
++    };
++
+ };
+ 
+ &gpio {
