@@ -1,0 +1,40 @@
+Test Patch
+Upstream-Status: Inappropriate [musl specific]
+
+--- a/redfish-core/lib/power_supply.hpp
++++ b/redfish-core/lib/power_supply.hpp
+@@ -39,7 +39,7 @@ namespace redfish
+ {
+ 
+ static constexpr std::array<std::string_view, 1> powerSupplyInterface = {
+-    "xyz.openbmc_project.Inventory.Item.PowerSupply"};
++    "xyz.openbmc_project.Configuration.PowerSupply"};
+ 
+ inline void updatePowerSupplyList(
+     const std::shared_ptr<bmcweb::AsyncResp>& asyncResp,
+@@ -51,6 +51,7 @@ inline void updatePowerSupplyList(
+     {
+         std::string powerSupplyName =
+             sdbusplus::message::object_path(powerSupplyPath).filename();
++        BMCWEB_LOG_WARNING("ADAM-: {}", powerSupplyName);
+         if (powerSupplyName.empty())
+         {
+             continue;
+@@ -139,11 +140,13 @@ inline void handlePowerSupplyCollectionGet(
+         return;
+     }
+ 
+-    const std::string reqpath = "/xyz/openbmc_project/inventory";
++    constexpr auto reqpath = "/xyz/openbmc_project/inventory/system/chassis/{}/";
+ 
+-    dbus::utility::getAssociatedSubTreePathsById(
+-        chassisId, reqpath, chassisInterfaces, "powered_by",
+-        powerSupplyInterface,
++    std::string objPath = std::format(reqpath, chassisId);
++    BMCWEB_LOG_WARNING("ADAM: {}", objPath);
++
++    dbus::utility::getSubTreePaths(
++        chassisId, 0, powerSupplyInterface,
+         [asyncResp, chassisId](
+             const boost::system::error_code& ec,
+             const dbus::utility::MapperGetSubTreePathsResponse& subtreePaths) {

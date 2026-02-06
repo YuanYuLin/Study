@@ -1,0 +1,28 @@
+diff --git a/src/topology.cpp b/src/topology.cpp
+index 02e74588..864b8059 100644
+--- a/src/topology.cpp
++++ b/src/topology.cpp
+@@ -25,6 +25,12 @@ void Topology::addBoard(const std::string& path, const std::string& boardType,
+ 
+         downstreamPorts[connectsTo].emplace_back(path);
+         boardTypes[path] = boardType;
++
++        auto findPoweredBy = exposesItem.find("PowerPort");
++        if (findPoweredBy != exposesItem.end())
++        {
++            powerPaths.insert(path);
++        }
+     }
+     else if (exposesType.ends_with("Port"))
+     {
+@@ -57,6 +63,10 @@ std::unordered_map<std::string, std::vector<Association>> Topology::getAssocs()
+                 {
+                     result[downstream].emplace_back("contained_by",
+                                                     "containing", upstream);
++                    if (powerPaths.find(downstream) != powerPaths.end())
++                    {
++                        result[upstream].emplace_back("powered_by", "powering", downstream);
++                    }
+                 }
+             }
+         }

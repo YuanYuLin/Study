@@ -21,4 +21,18 @@ FLASH_SIZE = "65536"
 # u-boot will be built failed.
 SOCSEC_SIGN_ENABLE = "0"
 
+#MACHINE_FEATURES += "obmc-bmc-state-mgmt"
+#MACHINE_FEATURES += "obmc-chassis-state-mgmt"
+MACHINE_FEATURES += "obmc-host-ipmi"
+#MACHINE_FEATURES += "obmc-host-state-mgmt"
+#MACHINE_FEATURES += "obmc-phosphor-chassis-mgmt"
+#MACHINE_FEATURES += "obmc-phosphor-flash-mgmt"
+#MACHINE_FEATURES += "obmc-phosphor-fan-mgmt"
+
+# PREFERRED_PROVIDER_virtual/obmc-chassis-mgmt = "packagegroup-test-apps"
+# PREFERRED_PROVIDER_virtual/obmc-system-mgmt = "packagegroup-test-apps"
+# PREFERRED_PROVIDER_virtual/obmc-flash-mgmt = "packagegroup-test-apps"
+PREFERRED_PROVIDER_virtual/obmc-host-ipmi-hw = "phosphor-ipmi-ssif"
+# PREFERRED_PROVIDER_virtual/obmc-fan-mgmt = "packagegroup-test-apps"
+
 VIRTUAL-RUNTIME_obmc-sensors-hwmon ?= "dbus-sensors"

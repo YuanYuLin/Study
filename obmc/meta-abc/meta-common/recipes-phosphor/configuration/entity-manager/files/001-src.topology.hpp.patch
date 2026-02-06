@@ -1,0 +1,11 @@
+diff --git a/src/topology.hpp b/src/topology.hpp
+index 18c92446..f7561225 100644
+--- a/src/topology.hpp
++++ b/src/topology.hpp
+@@ -23,5 +23,6 @@ class Topology
+ 
+     std::unordered_map<PortType, std::vector<Path>> upstreamPorts;
+     std::unordered_map<PortType, std::vector<Path>> downstreamPorts;
++    std::set<Path> powerPaths;
+     std::unordered_map<Path, BoardType> boardTypes;
+ };

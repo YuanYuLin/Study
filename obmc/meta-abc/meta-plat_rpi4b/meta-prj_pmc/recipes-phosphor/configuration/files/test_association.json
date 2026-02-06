@@ -1,0 +1,26 @@
+[
+{
+  "Exposes": [
+    {
+      "Name": "MyPort",
+      "Type": "BackplanePort"
+    }
+  ],
+  "Probe": "TRUE",
+  "Name": "SuperChassis",
+  "Type": "Chassis"
+},
+{
+  "Exposes": [
+    {
+      "ConnectsToType": "BackplanePort",
+      "Name": "MyDownstreamPort",
+      "Type": "DownstreamPort"
+    }
+  ],
+  "Probe": "TRUE",
+  "Name": "SubChassis",
+  "Type": "Chassis"
+}
+]
+

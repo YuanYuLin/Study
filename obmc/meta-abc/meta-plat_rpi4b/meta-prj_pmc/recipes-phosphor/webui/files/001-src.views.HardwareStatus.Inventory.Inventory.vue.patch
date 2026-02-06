@@ -1,0 +1,12 @@
+diff --git a/src/views/HardwareStatus/Inventory/Inventory.vue b/src/views/HardwareStatus/Inventory/Inventory.vue
+index fcdbf8d2..31e6fc4b 100644
+--- a/src/views/HardwareStatus/Inventory/Inventory.vue
++++ b/src/views/HardwareStatus/Inventory/Inventory.vue
+@@ -75,6 +75,7 @@ export default {
+     TableFans,
+     TableBmcManager,
+     TableChassis,
++    TablePowerSupplies,
+     TableProcessors,
+     TableAssembly,
+     PageSection,

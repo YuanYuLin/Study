@@ -1,0 +1,13 @@
+diff --git a/phosphor-power-supply/psu_manager.cpp b/phosphor-power-supply/psu_manager.cpp
+index 5ad749cf..6f93f6c3 100644
+--- a/phosphor-power-supply/psu_manager.cpp
++++ b/phosphor-power-supply/psu_manager.cpp
+@@ -25,7 +25,7 @@ constexpr auto powerSystemsInputsObjPath =
+     "/xyz/openbmc_project/power/power_supplies/chassis0/psus";
+ 
+ constexpr auto IBMCFFPSInterface =
+-    "xyz.openbmc_project.Configuration.IBMCFFPSConnector";
++    "xyz.openbmc_project.Configuration.pmbus";
+ constexpr auto i2cBusProp = "I2CBus";
+ constexpr auto i2cAddressProp = "I2CAddress";
+ constexpr auto psuNameProp = "Name";

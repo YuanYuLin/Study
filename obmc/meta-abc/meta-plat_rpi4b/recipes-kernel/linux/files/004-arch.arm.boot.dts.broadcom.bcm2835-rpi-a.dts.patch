@@ -1,0 +1,29 @@
+Test Patch
+Upstream-Status: Inappropriate [musl specific]
+
+--- a/arch/arm/boot/dts/broadcom/bcm2835-rpi-a.dts
++++ b/arch/arm/boot/dts/broadcom/bcm2835-rpi-a.dts
+@@ -163,3 +163,23 @@ &uart0 {
+ 	status = "okay";
+ };
+ 
++&spi {
++    status = "okay";
++
++    spidev0: spidev@0 {
++        compatible = "spidev";
++        reg = <0>;
++        #address-cells = <1>;
++        #size-cells = <0>;
++        spi-max-frequency = <500000>;
++    };
++
++    spidev1: spidev@1 {
++        compatible = "spidev";
++        reg = <1>;
++        #address-cells = <1>;
++        #size-cells = <0>;
++        spi-max-frequency = <500000>;
++    };
++};
++

@@ -39,7 +39,6 @@ RDEPENDS:${PN}-flash = " \
 
 SUMMARY_${PN}-system = "Test System"
 RDEPENDS:${PN}-system = " \
-    phosphor-ipmi-ipmb \
     phosphor-hostlogger \
     phosphor-sel-logger \
     ipmitool \

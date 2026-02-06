@@ -1,0 +1,76 @@
+[
+{
+    "Exposes": [
+        {
+            "Name": "PowerShell Chassis",
+            "Type": "PsChassisPort"
+        }
+    ],
+    "Name": "ABC PowerShelf Chassis",
+    "Probe": "FOUND('ABC Chassis Baseboard')",
+    "Type": "Chassis"
+},
+{
+    "Exposes": [
+    ],
+    "Name": "ABC Chassis Baseboard",
+    "Probe": "TRUE",
+    "Type": "Board",
+    "ProductId": "1",
+    "xyz.openbmc_project.Inventory.Decorator.Asset": {
+        "Manufacturer": "ABC",
+        "Model": "PowerShelf",
+        "PartNumber": "12345",
+        "SerialNumber": "12345"
+    },
+    "xyz.openbmc_project.Inventory.Item.System": {}
+},
+{
+    "Exposes": [
+        {
+        "ConnectsToType": "PsChassisPort",
+        "Name": "PortChassisSlot1",
+        "Type": "DownstreamPort"
+        }
+    ],
+    "Name": "Chassis1",
+    "Probe": "FOUND('ABC PowerShelf Chassis')",
+    "Type": "Chassis"
+},
+{
+    "Exposes": [
+        {
+        "ConnectsToType": "PsChassisPort",
+        "Name": "PortChassisSlot2",
+        "Type": "DownstreamPort"
+        }
+    ],
+    "Name": "Chassis2",
+    "Probe": "FOUND('ABC PowerShelf Chassis')",
+    "Type": "Chassis"
+},
+{
+    "Exposes": [
+        {
+        "ConnectsToType": "PsChassisPort",
+        "Name": "PortChassisSlot3",
+        "Type": "DownstreamPort"
+        }
+    ],
+    "Name": "Chassis3",
+    "Probe": "FOUND('ABC PowerShelf Chassis')",
+    "Type": "Chassis"
+},
+{
+    "Exposes": [
+        {
+        "ConnectsToType": "PsChassisPort",
+        "Name": "PortChassisSlot4",
+        "Type": "DownstreamPort"
+        }
+    ],
+    "Name": "Chassis4",
+    "Probe": "FOUND('ABC PowerShelf Chassis')",
+    "Type": "Chassis"
+}
+]

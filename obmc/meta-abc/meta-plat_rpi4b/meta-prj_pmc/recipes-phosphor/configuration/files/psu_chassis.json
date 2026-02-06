@@ -1,0 +1,28 @@
+[
+{
+    "Exposes": [
+        {
+            "Name": "PowerShell Chassis",
+            "Type": "PsChassisPort"
+        }
+    ],
+    "Name": "ABC PowerShelf Chassis",
+    "Probe": "FOUND('ABC Chassis Baseboard')",
+    "Type": "Chassis"
+},
+{
+    "Exposes": [
+    ],
+    "Name": "ABC Chassis Baseboard",
+    "Probe": "TRUE",
+    "Type": "Board",
+    "ProductId": "1",
+    "xyz.openbmc_project.Inventory.Decorator.Asset": {
+        "Manufacturer": "ABC",
+        "Model": "PowerShelf",
+        "PartNumber": "12345",
+        "SerialNumber": "12345"
+    },
+    "xyz.openbmc_project.Inventory.Item.System": {}
+}
+]

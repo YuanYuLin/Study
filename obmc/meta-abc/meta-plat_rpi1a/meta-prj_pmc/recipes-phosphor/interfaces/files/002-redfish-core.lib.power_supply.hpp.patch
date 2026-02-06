@@ -1,0 +1,13 @@
+Test Patch
+Upstream-Status: Inappropriate [musl specific]
+
+--- a/redfish-core/lib/power_supply.hpp
++++ b/redfish-core/lib/power_supply.hpp
+@@ -225,6 +225,7 @@ inline void getPowerSupplyState(
+     const std::shared_ptr<bmcweb::AsyncResp>& asyncResp,
+     const std::string& service, const std::string& path)
+ {
++    BMCWEB_LOG_WARNING("ADAM-: {}, {}", service, path);
+     dbus::utility::getProperty<bool>(
+         service, path, "xyz.openbmc_project.Inventory.Item", "Present",
+         [asyncResp](const boost::system::error_code& ec, const bool value) {

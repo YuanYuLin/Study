@@ -1,10 +1,11 @@
 #!/bin/sh
 
-fslist="proc sys dev run mnt"
-rodir=run/initramfs/ro
-rwdir=run/initramfs/rw
+fslist="proc sys dev run"
+rodir=/run/initramfs/ro
+rwdir=/run/initramfs/rw
 upper=$rwdir/cow
 work=$rwdir/work
+rootdir=/root
 ROOTFS=/rootfs.squashfs.x86_64
 
 cd /
@@ -33,18 +34,20 @@ export_cmdline_var() {
 }
 
 prepare_rootfs_tftp() {
-    ifconfig lo up
-    sleep 2
-    ifconfig eth0 up
-    ifconfig eth0 192.168.70.200
+    ip link set lo up
+    sleep 3
+    ip addr add 192.168.70.100/24 dev eth0
+    ip link set eth0 up
     echo "Downloading '$ROOTFS' from '192.168.70.254' ..."
 
     tftp -g -r $ROOTFS -l $ROOTFS 192.168.70.254
-    ifconfig eth0 down
+    ip link set eth0 down
+    ip addr del 192.168.70.100/24 dev eth0
 }
 
 prepare_rootfs_emmc() {
     echo "Mounting /dev/mmcblk0p1 to /mnt ..."
+    mkdir -p /mnt
     mount -t vfat /dev/mmcblk0p1 /mnt
     cp -v /mnt/$ROOTFS $ROOTFS
 
@@ -58,20 +61,12 @@ mount_rootfs() {
     rodev=$ROOTFS
     mount "$rodev" $rodir -t $rofst -o $roopts
 
-    mount -t tmpfs -o mode=755 tmpfs $rwdir
+    mount -t tmpfs -o mode=755,size=50M tmpfs $rwdir
     mkdir -p $upper
     mkdir -p $work
 
-    mount -t overlay overlay -o lowerdir=$rodir,upperdir=$upper,workdir=$work  /root
-}
-
-switch_rootfs() {
-    init=/sbin/init
-    exec switch_root /root $init
-}
-
-debug_takeover() {
-    exec /bin/sh
+    mkdir -p $rootdir
+    mount -t overlay -o lowerdir=$rodir,upperdir=$upper,workdir=$work cow $rootdir
 }
 
 export_cmdline_var
@@ -83,8 +78,15 @@ elif [ "$BOOT" == "mmc" ];
 then
     prepare_rootfs_emmc
 else
-    debug_takeover
+    exec /bin/sh
 fi
 
 mount_rootfs
-switch_rootfs
+
+for f in $fslist
+do
+    mount --move "$f" "root/$f"
+done
+
+exec switch_root -c /dev/console $rootdir /sbin/init
+

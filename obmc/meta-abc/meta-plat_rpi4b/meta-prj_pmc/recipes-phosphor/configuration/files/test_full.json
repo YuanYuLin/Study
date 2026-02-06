@@ -1,0 +1,143 @@
+[
+  {
+    "Name": "ABC-System",
+    "Type": "System",
+    "PrettyName": "ABC Demo System",
+    "Manufacturer": "ABC Corp",
+    "Model": "ABC-Server-1000",
+    "SerialNumber": "ABC123456789",
+    "PartNumber": "PN-ABC1000",
+    "AssetTag": "AT-0001",
+    "Version": "1.0",
+    "Exposes": [
+    ],
+    "Probe": "TRUE"
+  },
+  {
+    "Name": "ABC-Chassis",
+    "Type": "Chassis",
+    "PrettyName": "ABC Chassis",
+    "Manufacturer": "ABC Corp",
+    "Model": "ABC-Chassis-1",
+    "SerialNumber": "CHS123456",
+    "PartNumber": "PN-CHS1000",
+    "AssetTag": "CHS-0001",
+    "Exposes": [
+      {
+        "Name": "MainBoard",
+        "Type": "Board",
+        "PrettyName": "Main System Board",
+        "Manufacturer": "ABC Corp",
+        "Model": "ABC-MB-1000"
+      },
+      {
+        "Name": "CPU0",
+        "Type": "Cpu",
+        "PrettyName": "Processor 0",
+        "Manufacturer": "ABC Corp",
+        "Model": "ABC-CPU-8000",
+        "FieldReplaceable": true
+      },
+      {
+        "Name": "CPU1",
+        "Type": "Cpu",
+        "PrettyName": "Processor 1",
+        "Manufacturer": "ABC Corp",
+        "Model": "ABC-CPU-8000",
+        "FieldReplaceable": true
+      },
+      {
+        "Name": "DIMM0",
+        "Type": "Dimm",
+        "PrettyName": "Memory Module 0",
+        "Manufacturer": "ABC Memory",
+        "Model": "8GB-DDR4",
+        "CapacityMiB": 8192
+      },
+      {
+        "Name": "DIMM1",
+        "Type": "Dimm",
+        "PrettyName": "Memory Module 1",
+        "Manufacturer": "ABC Memory",
+        "Model": "8GB-DDR4",
+        "CapacityMiB": 8192
+      },
+      {
+        "Name": "DIMM2",
+        "Type": "Dimm",
+        "PrettyName": "Memory Module 2",
+        "Manufacturer": "ABC Memory",
+        "Model": "8GB-DDR4",
+        "CapacityMiB": 8192
+      },
+      {
+        "Name": "DIMM3",
+        "Type": "Dimm",
+        "PrettyName": "Memory Module 3",
+        "Manufacturer": "ABC Memory",
+        "Model": "8GB-DDR4",
+        "CapacityMiB": 8192
+      },
+      {
+        "Name": "PSU0",
+        "Type": "PowerSupply",
+        "PrettyName": "Power Supply 0",
+        "Manufacturer": "ABC Power",
+        "Model": "ABC-PS-500W",
+        "FieldReplaceable": true,
+        "Present": true
+      },                                                                                                                                                           {
+        "Name": "PSU1",
+        "Type": "PowerSupply",
+        "PrettyName": "Power Supply 1",
+        "Manufacturer": "ABC Power",
+        "Model": "ABC-PS-500W",
+        "FieldReplaceable": true,
+        "Present": true
+      },
+      {
+        "Name": "FAN0",
+        "Type": "Fan",
+        "PrettyName": "System Fan 0",
+        "Manufacturer": "ABC Cooling",
+        "Model": "FanModel-1234"
+      },
+      {
+        "Name": "FAN1",
+        "Type": "Fan",
+        "PrettyName": "System Fan 1",
+        "Manufacturer": "ABC Cooling",
+        "Model": "FanModel-1234"
+      },
+      {
+        "Name": "FAN2",
+        "Type": "Fan",
+        "PrettyName": "System Fan 2",
+        "Manufacturer": "ABC Cooling",
+        "Model": "FanModel-1234"
+      {
+        "Name": "FAN3",
+        "Type": "Fan",
+        "PrettyName": "System Fan 3",
+        "Manufacturer": "ABC Cooling",
+        "Model": "FanModel-1234"
+      }
+    ],
+    "Probe": "TRUE"
+  },
+  {
+    "Name": "BMC",
+    "Type": "Bmc",
+    "PrettyName": "Baseboard Management Controller",
+    "Manufacturer": "ASPEED",
+    "Model": "AST2600",
+    "SerialNumber": "BMC123456789",
+    "PartNumber": "PN-BMC-2600",
+    "Version": "1.0",
+    "FirmwareVersion": "v2.18.0-abc",
+    "Exposes": [
+    ],
+    "Probe": "TRUE"
+  }
+]
+
